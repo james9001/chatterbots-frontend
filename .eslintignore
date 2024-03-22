@@ -1,0 +1,5 @@
+.eslintrc.cjs
+karma.conf.js
+e2e/protractor.conf.js
+src/web-config-template.js
+src/environments/environment.web.ts

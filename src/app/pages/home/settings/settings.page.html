@@ -1,0 +1,59 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-item lines="none">
+			<ion-title class="toolbar-title-header">Settings</ion-title>
+		</ion-item>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="noselect">
+	<form novalidate>
+		<h4>Main Settings</h4>
+
+		<ion-item lines="full" class="ion-activatable">
+			<ion-label position="stacked" color="primary" class="ion-text-wrap"
+				>Maximum tokens worth of message history and context to use in prompt context, which may be
+				required in order to avoid causing out of memory errors in your LLM runner. This is model and
+				VRAM specific. Fine tune it yourself.</ion-label
+			>
+			<ion-input
+				[(ngModel)]="applicationSettingsModel.promptMaxTokens"
+				name="promptMaxTokens"
+				type="text"
+				required="true"
+			>
+			</ion-input>
+		</ion-item>
+		<ion-item lines="full" class="ion-activatable">
+			<ion-label position="stacked" color="primary" class="ion-text-wrap"
+				>OpenAI-Compatible API endpoint. e.g. http://172.20.0.1:5000/api/v1</ion-label
+			>
+			<ion-input
+				[(ngModel)]="applicationSettingsModel.openAiCompatibleEndpoint"
+				name="openAiCompatibleEndpoint"
+				type="text"
+				required="true"
+			>
+			</ion-input>
+		</ion-item>
+		<ion-button (click)="onClickSaveMainSettings()">Save Settings</ion-button>
+
+		<h4>Connection</h4>
+		<ion-item lines="full" class="ion-activatable">
+			<ion-label position="stacked" color="primary" class="ion-text-wrap"
+				>Chatterbots Backend Base URL</ion-label
+			>
+			<ion-input
+				[(ngModel)]="connectionModel.apiBaseUrl"
+				name="apiBaseUrl"
+				type="text"
+				required="true"
+			>
+			</ion-input>
+		</ion-item>
+		<ion-button (click)="onClickSaveConnectionSettings()">Save Connection Settings</ion-button>
+	</form>
+</ion-content>

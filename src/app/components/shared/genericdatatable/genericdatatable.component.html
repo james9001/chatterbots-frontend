@@ -1,0 +1,145 @@
+<div *ngIf="experimentalMode">
+	<ngx-datatable
+		class="material"
+		[rows]="rows"
+		[rowHeight]="50"
+		[columns]="state.dataTableConfiguration.columns"
+		[columnMode]="'force'"
+		[sortType]="sort"
+		[headerHeight]="50"
+		[footerHeight]="50"
+		(activate)="onActivate()"
+		[externalPaging]="true"
+		[count]="page!.totalElements"
+		[offset]="page!.pageNumber"
+		[limit]="page!.pageSize"
+		(page)="setPage($event)"
+	>
+		<ngx-datatable-column
+			*ngFor="let aColumn of state.dataTableConfiguration.columns"
+			[name]="aColumn.name"
+		>
+			<ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+				<div *ngIf="aColumn.name === 'Id'" class="datatable-edit-column">
+					{{ value }}
+					<ion-icon
+						name="create-outline"
+						class="datatable-edit-button"
+						(click)="onClickOpenEdit($event, row)"
+					></ion-icon>
+				</div>
+				<div *ngIf="aColumn.name !== 'Id'">
+					{{ value }}
+				</div>
+			</ng-template>
+		</ngx-datatable-column>
+	</ngx-datatable>
+</div>
+
+<div *ngIf="!experimentalMode && !state.isTableHidden">
+	<ngx-datatable
+		#myTable
+		class="material expandable"
+		[limit]="state.dataTableConfiguration.pageSize"
+		[rows]="rows"
+		[rowHeight]="50"
+		[columns]="state.dataTableConfiguration.columns"
+		[columnMode]="'force'"
+		[sortType]="sort"
+		[headerHeight]="50"
+		[footerHeight]="50"
+		(activate)="onActivate()"
+	>
+		<!-- Row Detail Template -->
+		<ngx-datatable-row-detail #myDetailRow (toggle)="onDetailToggle()">
+			<ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+				<div *ngIf="row.prompt && row.result" class="prompt-and-result-row">
+					<ion-grid #myGrid>
+						<ion-row>
+							<ion-col>
+								<ion-card>
+									<ion-card-header><ion-card-title>Prompt</ion-card-title></ion-card-header>
+									<ion-card-content>
+										<ion-textarea
+											[(ngModel)]="row.prompt"
+											name="prompt"
+											type="text"
+											required="true"
+											autoGrow="true"
+											class="obvious-textarea"
+										>
+										</ion-textarea>
+									</ion-card-content>
+								</ion-card>
+							</ion-col>
+							<ion-col>
+								<ion-card>
+									<ion-card-header><ion-card-title>Result</ion-card-title></ion-card-header>
+									<ion-card-content>
+										<ion-textarea
+											[(ngModel)]="row.result"
+											name="result"
+											type="text"
+											required="true"
+											autoGrow="true"
+											class="obvious-textarea"
+										>
+										</ion-textarea>
+									</ion-card-content>
+								</ion-card>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</div>
+				<div *ngIf="row.prompt && !row.result" class="prompt-and-result-row">
+					<ion-grid #myGrid>
+						<ion-row>
+							<ion-col>
+								<ion-card>
+									<ion-card-header><ion-card-title>Prompt</ion-card-title></ion-card-header>
+									<ion-card-content>
+										<ion-textarea
+											[(ngModel)]="row.prompt"
+											name="prompt"
+											type="text"
+											required="true"
+											autoGrow="true"
+											class="obvious-textarea"
+										>
+										</ion-textarea>
+									</ion-card-content>
+								</ion-card>
+							</ion-col>
+							<ion-col> </ion-col>
+						</ion-row>
+					</ion-grid>
+				</div>
+			</ng-template>
+		</ngx-datatable-row-detail>
+
+		<ngx-datatable-column
+			*ngFor="let aColumn of state.dataTableConfiguration.columns"
+			[name]="aColumn.name"
+		>
+			<ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+				<div *ngIf="aColumn.name === 'Id'" class="datatable-edit-column">
+					{{ value }}
+					<ion-icon
+						name="create-outline"
+						class="datatable-edit-button"
+						(click)="onClickOpenEdit($event, row)"
+					></ion-icon>
+					<ion-icon
+						*ngIf="row.prompt || row.result"
+						name="expand-outline"
+						class="datatable-expand-button"
+						(click)="onClickExpand($event, row)"
+					></ion-icon>
+				</div>
+				<div *ngIf="aColumn.name !== 'Id'">
+					{{ value }}
+				</div>
+			</ng-template>
+		</ngx-datatable-column>
+	</ngx-datatable>
+</div>

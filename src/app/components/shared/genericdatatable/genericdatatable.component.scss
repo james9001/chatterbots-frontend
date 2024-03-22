@@ -1,0 +1,48 @@
+.datatable-edit-button {
+	color: var(--ion-color-primary);
+	&:hover {
+		color: var(--ion-color-secondary);
+	}
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+	margin-right: 0;
+	right: 0;
+	top: -1rem;
+}
+.datatable-expand-button {
+	color: var(--ion-color-primary);
+	&:hover {
+		color: var(--ion-color-secondary);
+	}
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+	margin-right: 40px;
+	right: 0;
+	top: -1rem;
+}
+.datatable-edit-column {
+	position: relative;
+}
+
+.ngx-datatable.scroll-vertical {
+	height: 80vh;
+}
+
+.prompt-and-result-row {
+	width: 100%;
+	height: 100%;
+}
+
+::ng-deep .datatable-row-detail {
+	height: 100% !important;
+	padding: 0 !important;
+}
+
+.obvious-textarea {
+	background-color: var(--ion-color-light-shade);
+	border: 1px solid var(--ion-color-primary);
+}

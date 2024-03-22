@@ -1,0 +1,76 @@
+.status-container {
+	width: calc(100% - 2em);
+	height: 11em;
+	background-color: var(--ion-color-light-shade);
+	border-radius: 3em;
+	padding: 1em;
+	margin: 1em;
+}
+
+.chatterbots-frontend-title {
+	text-align: center;
+}
+
+.main-status-section {
+	width: calc(100%);
+	border-radius: 3em;
+	padding: 1em;
+	margin-top: 1em;
+}
+
+.status-detail-section {
+	width: calc(100%);
+	border-radius: 3em;
+	padding: 1em;
+	margin-top: 0.5em;
+	background-color: var(--ion-color-light);
+}
+
+.main-status-text {
+	text-align: center;
+}
+
+.detail-text {
+	text-align: center;
+}
+
+.status-disconnected {
+	background-color: var(--ion-color-danger);
+}
+
+.status-free {
+	background-color: var(--ion-color-medium);
+}
+
+.logo-card {
+	height: 15rem;
+}
+
+.logo-image {
+	min-width: 475px;
+	width: 100%;
+	right: 0;
+	position: absolute;
+}
+
+.chatterbotsname {
+	background-color: var(--ion-item-background);
+	letter-spacing: 4px;
+	color: var(--ion-color-primary);
+	text-align: center;
+	text-shadow: 1px 1px 2px var(--ion-color-primary-shade), 0 0 1em var(--ion-color-primary-shade),
+		0 0 0.2em var(--ion-color-primary-shade);
+	position: absolute;
+	font-size: 1.5rem;
+	z-index: 2;
+	left: 0;
+	top: 13.5rem;
+}
+
+.error-avatar {
+	background-color: var(--ion-color-danger);
+}
+
+.auto-avatar {
+	background-color: var(--ion-color-primary-shade);
+}

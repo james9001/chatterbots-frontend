@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-item lines="none">
+			<ion-title class="title-header">View Item</ion-title>
+		</ion-item>
+		<ion-buttons slot="end">
+			<ion-button *ngIf="model.id > -1" (click)="onClickUndo()">Undo</ion-button>
+			<ion-button *ngIf="model.id > -1" (click)="onClickDelete()">Delete</ion-button>
+			<ion-button *ngIf="model.id > -1" (click)="onClickSave()">Save</ion-button>
+			<ion-button *ngIf="model.id == -1" (click)="onClickCreate()">Create</ion-button>
+			<ion-button (click)="onClickClose()">Close</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form novalidate>
+		<ion-item
+			*ngFor="let aColumn of state.dataTableConfiguration.availableColumns; let i = index"
+			lines="full"
+			class="ion-activatable"
+		>
+			<ion-label position="stacked" color="primary" class="ion-text-wrap">{{aColumn.name}}</ion-label>
+			<ion-input
+				[(ngModel)]="model[aColumn.realName]"
+				name="{{aColumn.realName}}"
+				type="text"
+				required="true"
+			>
+			</ion-input>
+		</ion-item>
+	</form>
+</ion-content>

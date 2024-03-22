@@ -1,0 +1,49 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-item lines="none">
+			<ion-title class="toolbar-title-header">Character Messages</ion-title>
+			<ion-icon name="cog-outline" slot="end" (click)="onClickOpenConfig()"></ion-icon>
+		</ion-item>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="noselect">
+	<generic-datatable
+		[hidden]="state.isTableHidden"
+		[state]="state"
+		[rows]="state.currentModels"
+		(rowClicked)="onClickOpenExisting($event)"
+	></generic-datatable>
+
+	<!--Turn this into a proper component later-->
+	<h4 style="margin-left: 10px">Filters</h4>
+	<ion-card>
+		<ion-item lines="full">
+			<ion-button (click)="addNewFilter()">Add</ion-button>
+			&nbsp; &nbsp; &nbsp;
+			<ion-checkbox (ionChange)="toggleContains()"></ion-checkbox>
+			&nbsp; Contains? &nbsp; &nbsp; &nbsp; Pick:
+			<ion-select interface="popover" (ionChange)="pickColumn($event)">
+				<ion-select-option
+					*ngFor="let x of state.dataTableConfiguration.availableColumns"
+					value="{{x.realName}}"
+					>{{x.name}}</ion-select-option
+				>
+			</ion-select>
+		</ion-item>
+		<ion-item lines="full" *ngFor="let x of pageFilters">
+			<ion-label position="stacked">{{x.name}} ({{x.isContains ? 'contains' : 'equals'}})</ion-label>
+			<ion-input type="text" (ionChange)="updateFilter(x.realName, x.isContains, $event)"> </ion-input>
+		</ion-item>
+	</ion-card>
+	<!--End of plz-component-me-->
+
+	<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+		<ion-fab-button (click)="onClickAddNew()">
+			<ion-icon name="add"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

@@ -1,0 +1,93 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/*
+ * ngx-datatable
+ */
+// common datatable colors
+$ngx-datatable-background: var(--ion-background-color);
+$ngx-datatable-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+	0 3px 14px 2px rgba(0, 0, 0, 0.12) !default;
+$ngx-datatable-row-odd-background: #eee !default;
+
+// default row and cell background colors
+$ngx-datatable-default-background: #fff !default;
+$ngx-datatable-default-background-hover: var(--ion-color-step-100);
+$ngx-datatable-default-background-focus: var(--ion-color-step-100);
+
+// default background colors for cell selection style
+$ngx-datatable-cellselection-background-hover: var(--ion-color-step-100);
+$ngx-datatable-cellselection-background-focus: var(--ion-color-step-100);
+
+// background and text colors for selected cell / row
+$ngx-datatable-selected-active-background: var(--ion-color-step-100);
+$ngx-datatable-selected-active-color: #fff !default;
+$ngx-datatable-selected-active-background-hover: var(--ion-color-step-100);
+$ngx-datatable-selected-active-color-hover: #fff !default;
+$ngx-datatable-selected-active-background-focus: var(--ion-color-step-100);
+$ngx-datatable-selected-active-color-focus: #fff !default;
+
+// colors for header elements
+$datatable-header-cell-background: var(--ion-item-background);
+$datatable-header-cell-color: var(--ion-color-primary);
+$datatable-header-border-bottom-color: rgba(0, 0, 0, 0.12) !default;
+$datatable-header-resize-handle-color: var(--ion-color-step-100);
+
+// colors for table body elements
+$datatable-row-detail-background: var(--ion-color-light);
+$datatable-body-cell-color: var(--ion-text-color);
+$datatable-group-header-background: #f5f5f5 !default;
+$datatable-group-header-border-top-color: #d9d8d9 !default;
+$datatable-group-header-border-bottom-color: #d9d8d9 !default;
+
+// colors for footer elements
+$datatable-footer-cell-color: var(--ion-color-primary);
+$datatable-footer-border-top-color: var(--ion-color-light);
+$datatable-pager-color: var(--ion-color-primary);
+$datatable-pager-color-hover: var(--ion-color-light);
+$datatable-pager-background-hover: var(--ion-color-primary);
+$datatable-pager-disabled-color: var(--ion-color-light-shade);
+$datatable-pager-disabled-background: transparent !default;
+$datatable-pager-active-background: var(--ion-color-light);
+
+// colors for summary row elements
+$datatable-summary-row-background: var(--ion-item-background);
+$datatable-summary-row-background-hover: #ddd !default;
+
+@import "../node_modules/@swimlane/ngx-datatable/index.css";
+@import "../node_modules/@swimlane/ngx-datatable/themes/material.scss";
+@import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
+
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}

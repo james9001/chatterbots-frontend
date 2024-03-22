@@ -1,0 +1,91 @@
+<ion-app>
+	<ion-split-pane contentId="main-content">
+		<ion-menu contentId="main-content">
+			<ion-header class="noselect">
+				<app-real-time-status> </app-real-time-status>
+			</ion-header>
+
+			<ion-content class="noselect" style="z-index: 10">
+				<ion-list lines="none" style="padding-top: 0">
+					<ion-menu-toggle autoHide="false">
+						<ion-item routerLink="/home" routerLinkActive="active" routerDirection="root" detail="false">
+							<ion-icon slot="start" name="home-outline"></ion-icon>
+							<ion-label> Home </ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle autoHide="false">
+						<ion-item
+							routerLink="/chatroom"
+							routerLinkActive="active"
+							routerDirection="root"
+							detail="false"
+						>
+							<ion-icon slot="start" name="home-outline"></ion-icon>
+							<ion-label> Chat Room </ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle autoHide="false">
+						<ion-item
+							routerLink="/settings"
+							routerLinkActive="active"
+							routerDirection="root"
+							detail="false"
+						>
+							<ion-icon slot="start" name="cog-outline"></ion-icon>
+							<ion-label> Settings </ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+
+					<app-chatroom-enabled-toggler></app-chatroom-enabled-toggler>
+
+					<ion-menu-toggle autoHide="false">
+						<ion-item
+							routerLink="/generation-executions-old-data"
+							routerLinkActive="active"
+							routerDirection="root"
+							detail="false"
+						>
+							<ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+							<ion-label> Generation Executions </ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle autoHide="false">
+						<ion-item
+							routerLink="/generation-values-old-data"
+							routerLinkActive="active"
+							routerDirection="root"
+							detail="false"
+						>
+							<ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+							<ion-label> Generation Values </ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle autoHide="false">
+						<ion-item
+							routerLink="/characters"
+							routerLinkActive="active"
+							routerDirection="root"
+							detail="false"
+						>
+							<ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+							<ion-label> Characters</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<ion-menu-toggle autoHide="false">
+						<ion-item
+							routerLink="/character-messages"
+							routerLinkActive="active"
+							routerDirection="root"
+							detail="false"
+						>
+							<ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+							<ion-label> Character Messages </ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+				</ion-list>
+			</ion-content>
+		</ion-menu>
+
+		<ion-router-outlet id="main-content"></ion-router-outlet>
+	</ion-split-pane>
+</ion-app>

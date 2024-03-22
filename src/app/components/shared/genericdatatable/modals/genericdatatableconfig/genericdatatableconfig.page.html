@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-item lines="none">
+			<ion-title class="title-header">View Options</ion-title>
+		</ion-item>
+		<ion-buttons slot="end">
+			<ion-button (click)="dismiss()">Close</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-item lines="none">
+		<ion-title> Misc Options </ion-title>
+	</ion-item>
+	<ion-item lines="full" class="ion-activatable">
+		<ion-label position="stacked" color="primary" class="ion-text-wrap">
+			Data Table Size (may need to reload page for it to take effect)
+		</ion-label>
+		<ion-input
+			[(ngModel)]="state.dataTableConfiguration.pageSize"
+			name="pageSize"
+			type="number"
+			#genericField="ngModel"
+			(ionChange)="onIonChangePageSize()"
+		>
+		</ion-input>
+	</ion-item>
+	<ion-item lines="none">
+		<ion-title> Data Table Columns </ion-title>
+	</ion-item>
+	<ion-item
+		*ngFor="let aColumn of state.dataTableConfiguration.availableColumns; let i = index"
+		lines="full"
+		class="ion-activatable"
+	>
+		<ion-label class="readonly-checkbox ion-text-wrap"> {{aColumn.name}} </ion-label>
+		<ion-checkbox
+			[(ngModel)]="aColumn.shown"
+			slot="start"
+			(ionChange)="refreshColumns(aColumn, $event)"
+		>
+		</ion-checkbox>
+	</ion-item>
+</ion-content>

@@ -1,0 +1,23 @@
+<div class="logo-card">
+	<img src="assets/LogoColour.png" class="logo-image" />
+</div>
+
+<ion-card>
+	<ion-item lines="none">
+		<ion-avatar *ngIf="mainStatus == 'DISCONNECTED'" slot="start" class="status-disconnected">
+		</ion-avatar>
+		<ion-label *ngIf="mainStatus == 'DISCONNECTED'">
+			<h2>Disconnected {{ detailsText }}</h2>
+		</ion-label>
+
+		<ion-avatar *ngIf="mainStatus == 'FREE'" slot="start" class="status-free"> </ion-avatar>
+		<ion-label *ngIf="mainStatus == 'FREE'">
+			<h2>Connected</h2>
+		</ion-label>
+
+		<ion-label *ngIf="inErrorState" slot="end">
+			<h2>Error</h2>
+		</ion-label>
+		<ion-avatar *ngIf="inErrorState" slot="end" class="error-avatar"> </ion-avatar>
+	</ion-item>
+</ion-card>
