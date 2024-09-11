@@ -49,6 +49,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 					{ name: "Updated Time" },
 
 					{ name: "Enabled" },
+
+					{ name: "System Prompt Addendum" },
 				],
 				availableColumns: [
 					{ name: "Id", shown: true, realName: "id" },
@@ -77,6 +79,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 					{ name: "Updated Time", shown: true, realName: "updatedTime" },
 
 					{ name: "Enabled", shown: true, realName: "enabled" },
+
+					{ name: "System Prompt Addendum", shown: true, realName: "systemPromptAddendum" },
 				],
 				apiPath: "generationvalues/values",
 			},
@@ -113,6 +117,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 			updatedTime: "",
 
 			enabled: item.enabled,
+
+			systemPromptAddendum: item.systemPromptAddendum,
 		};
 	}
 
@@ -144,6 +150,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 			updatedTime: formatDate(item.updatedTime, "yyyy-MM-dd h:mm a", "en-US"),
 
 			enabled: item.enabled,
+
+			systemPromptAddendum: item.systemPromptAddendum,
 		};
 	}
 
@@ -175,6 +183,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 			updatedTime: "",
 
 			enabled: false,
+
+			systemPromptAddendum: "",
 		};
 	}
 }
@@ -200,6 +210,7 @@ interface TableGenerationValues extends TableIdentifiable {
 	banEosToken: boolean;
 	skipSpecialTokens: boolean;
 	enabled: boolean;
+	systemPromptAddendum: string;
 }
 
 export interface GenerationValues extends IdentifiableDto {
@@ -223,4 +234,5 @@ export interface GenerationValues extends IdentifiableDto {
 	banEosToken: boolean;
 	skipSpecialTokens: boolean;
 	enabled: boolean;
+	systemPromptAddendum: string;
 }
