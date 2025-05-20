@@ -81,6 +81,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 					{ name: "Enabled", shown: true, realName: "enabled" },
 
 					{ name: "System Prompt Addendum", shown: true, realName: "systemPromptAddendum" },
+
+					{ name: "Model Name", shown: true, realName: "modelName" },
 				],
 				apiPath: "generationvalues/values",
 			},
@@ -119,6 +121,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 			enabled: item.enabled,
 
 			systemPromptAddendum: item.systemPromptAddendum,
+
+			modelName: item.modelName,
 		};
 	}
 
@@ -152,6 +156,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 			enabled: item.enabled,
 
 			systemPromptAddendum: item.systemPromptAddendum,
+
+			modelName: item.modelName,
 		};
 	}
 
@@ -185,6 +191,8 @@ export class GenerationValuesOldDataPage extends AbstractListingPage {
 			enabled: false,
 
 			systemPromptAddendum: "",
+
+			modelName: "",
 		};
 	}
 }
@@ -211,6 +219,7 @@ interface TableGenerationValues extends TableIdentifiable {
 	skipSpecialTokens: boolean;
 	enabled: boolean;
 	systemPromptAddendum: string;
+	modelName: string;
 }
 
 export interface GenerationValues extends IdentifiableDto {
@@ -235,4 +244,5 @@ export interface GenerationValues extends IdentifiableDto {
 	skipSpecialTokens: boolean;
 	enabled: boolean;
 	systemPromptAddendum: string;
+	modelName: string;
 }
